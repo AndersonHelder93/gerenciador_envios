@@ -61,7 +61,7 @@ public class Envio {
     private BigDecimal valorEnvio;
 
     @NotNull
-    @Column(unique = true,name = "codRastreio_envio")
+    @Column(unique = true, nullable = false, name = "codRastreio_envio")
     private String codRastreio;
 
 

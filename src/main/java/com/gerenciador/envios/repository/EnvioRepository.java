@@ -8,4 +8,6 @@ import java.util.Optional;
 public interface EnvioRepository extends JpaRepository<Envio, Long> {
 
     Optional<Envio> findByCodRastreio(String codRastreio);
+    boolean existsByCodRastreio(String codRastreio);
+
 }

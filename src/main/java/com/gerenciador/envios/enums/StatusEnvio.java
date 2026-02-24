@@ -5,5 +5,4 @@ public enum StatusEnvio {
     EM_TRANSITO,
     ENTREGUE,
     CANCELADO;
-
 }

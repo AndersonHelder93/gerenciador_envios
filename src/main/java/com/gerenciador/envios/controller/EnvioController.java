@@ -2,7 +2,7 @@ package com.gerenciador.envios.controller;
 
 import com.gerenciador.envios.dto.EnvioRequestDTO;
 import com.gerenciador.envios.dto.EnvioResponseDTO;
-import com.gerenciador.envios.entity.Envio;
+import com.gerenciador.envios.dto.EnvioStatusUpdateDTO;
 import com.gerenciador.envios.service.EnvioService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -28,4 +28,17 @@ public class EnvioController {
     public ResponseEntity<EnvioResponseDTO> buscarPorCodigo(@PathVariable String codigo){
         return ResponseEntity.ok(envioService.buscarPorCodigo(codigo));
     }
+
+
+    @PatchMapping("/{codigo}/status")
+    public ResponseEntity<EnvioResponseDTO> atualizarStatus(
+            @PathVariable String codigo,
+            @RequestBody @Valid EnvioStatusUpdateDTO dto) {
+
+        EnvioResponseDTO response =
+                envioService.atualizarStatus(codigo, dto.getStatus());
+
+        return ResponseEntity.ok(response);
+    }
+
 }
