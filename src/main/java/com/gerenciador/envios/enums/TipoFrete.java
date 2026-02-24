@@ -2,24 +2,25 @@ package com.gerenciador.envios.enums;
 
 import com.gerenciador.envios.entity.Produto;
 
+import java.math.BigDecimal;
+
 
 public enum TipoFrete {
 
-    NORMAL(10.0),
-    SEDEX(20.0),
-    RAPIDAO(30.0),
-    COMETA(40.0);
+    NORMAL(0.10),
+    SEDEX(0.20),
+    RAPIDAO(0.30),
+    COMETA(0.40);
 
-    private final double taxaFixa;
+    private final double percentual;
 
     TipoFrete(double taxaFixa) {
-        this.taxaFixa = taxaFixa;
+        this.percentual = taxaFixa;
 
     }
 
-
-    public double calcularFrete(Produto produto) {
-        return this.taxaFixa + (produto.calcularVolume() * 0.5);
+    public BigDecimal aplicar(BigDecimal valorBase) {
+        return valorBase.add(valorBase.multiply(BigDecimal.valueOf(percentual)));
     }
 
 }

@@ -6,6 +6,8 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal;
+
 
 @Entity
 @Getter @Setter
@@ -35,6 +37,10 @@ public class Produto {
     @NotNull
     @Column(name = "profundidade_produto")
     private Integer profundidade;
+
+    @NotNull
+    @Column(name = "peso_produto")
+    private BigDecimal peso;
 
     public Produto(){
     }
