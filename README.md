@@ -1,11 +1,17 @@
 # 📦 Gerenciador de Envios de Pacotes
 
-API REST desenvolvida com **Java + Spring Boot** para gerenciamento de envios de pacotes.
-Permite cadastrar produtos, criar envios, rastrear por código e atualizar status.
+API REST para gerenciamento de produtos e controle de envios com código de rastreio único.
+
+Projeto desenvolvido com foco em boas práticas de backend usando Spring Boot, incluindo arquitetura em camadas, tratamento global de exceções e documentação automática com Swagger.
 
 ---
 
-## 🚀 Tecnologias
+## 🚀 Deploy
+
+🔗 Swagger UI:
+https://gerenciador-envios.onrender.com/swagger-ui/index.html
+
+## 🛠️ Tecnologias
 
 * Java 17
 * Spring Boot 3.3
@@ -16,6 +22,8 @@ Permite cadastrar produtos, criar envios, rastrear por código e atualizar statu
 * Lombok
 * OpenAPI / Swagger
 * Maven
+* Docker
+* Render
 
 ---
 
@@ -39,17 +47,27 @@ controller → service → repository → entity → dto → exception
 
 ## ✅ Funcionalidades implementadas
 
-* ✔️ Cadastro de produtos
-* ✔️ Listagem de produtos
-* ✔️ Criação de envios
-* ✔️ Geração automática de código de rastreio
-* ✔️ Consulta de envio por código
-* ✔️ Atualização de status do envio
-* ✔️ Validação de dados de entrada
+* ✔️ CRUD de produtos
+* ✔️ Criação de envios vinculados a produtos
+* ✔️ Geração automática de código de rastreio (UUID)
+* ✔️ Atualização de status do envio (PATCH)
+* ✔️ Busca por código de rastreio
 * ✔️ Tratamento global de exceções
-* ✔️ Documentação automática com Swagger
+* ✔️ Documentação interativa com Swagger
 
 ---
+
+## 🔄 Fluxo de envio
+
+### O envio pode transitar pelos seguintes status:
+
+* EM_PREPARACAO
+
+* EM_TRANSITO
+
+* ENTREGUE
+
+* CANCELADO
 
 ## ▶️ Como executar o projeto
 
@@ -139,26 +157,8 @@ Password: (vazio)
 
 ---
 
-## 🔄 Status de envio suportados
 
-* `EM_PREPARACAO`
-* `EM_TRANSITO`
-* `ENTREGUE`
-* `CANCELADO`
 
----
-
-## 🌐 Deploy
-
-Projeto preparado para deploy em plataformas como **Render**.
-
-A aplicação utiliza porta dinâmica:
-
-```properties
-server.port=${PORT:8080}
-```
-
----
 
 ## 👨‍💻 Autor
 
