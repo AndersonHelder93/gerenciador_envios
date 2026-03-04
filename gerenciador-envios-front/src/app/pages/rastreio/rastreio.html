@@ -1,0 +1,10 @@
+<h2>Rastrear Envio</h2>
+
+<input [(ngModel)]="codigo" placeholder="Código de rastreio">
+<button (click)="buscar()">Buscar</button>
+
+<div *ngIf="envio">
+  <p><b>Status:</b> {{ envio.status }}</p>
+  <p><b>Destinatário:</b> {{ envio.destinatario }}</p>
+  <p><b>Valor:</b> {{ envio.valorEnvio }}</p>
+</div>
